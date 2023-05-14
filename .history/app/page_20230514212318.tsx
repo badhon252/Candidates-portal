@@ -7,4 +7,3 @@ export default function Home() {
 }
 
 console.log("Staged me!");
-console.log("Staged me too!");

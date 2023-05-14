@@ -5,6 +5,3 @@ export default function Home() {
     </main>
   );
 }
-
-console.log("Staged me!");
-console.log("Staged me too!");
