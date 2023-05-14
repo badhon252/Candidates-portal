@@ -11,8 +11,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint . --ext .tsx,.ts",
-        "test": "jest"
+        "lint": "next lint"
     },
     "dependencies": {
         "@prisma/client": "^4.14.0",
