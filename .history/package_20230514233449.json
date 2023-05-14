@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint . --ext .tsx,.ts",
     "test": "jest",
-    "commit": "git-cz",
+    "commit": "cz",
     "prepare": "husky install",
     "lint:fix": "eslint . --ext .tsx,.ts --fix"
   },
