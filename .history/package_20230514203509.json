@@ -9,7 +9,7 @@
         "lint": "eslint . --ext .tsx,.ts",
         "test": "jest",
         "commit": "cz",
-        "prepare": "husky install",
+        "prepare": "husky install"
         "lint:fix": "eslint . --ext .tsx,.ts --fix"
     },
     "dependencies": {
