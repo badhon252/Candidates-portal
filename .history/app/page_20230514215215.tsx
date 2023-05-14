@@ -6,7 +6,6 @@ export default function Home() {
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius commodi
         perspiciatis laborum reiciendis sit autem a magni, facilis minus eos
-        dolores, sint labore tempora nostrum non ex neque eveniet voluptatum.
       </p>
     </main>
   );
