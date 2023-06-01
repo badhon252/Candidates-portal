@@ -10,35 +10,31 @@ const Form = () => {
     e.preventDefault();
     console.log("Form submitted");
 
-    try {
-      const response = await axios.post("/api/createUser", {
-        name,
-        email,
-        occupation,
-      });
-      console.log("Created user:", response.data);
-      // Reset form fields
-      setName("");
-      setEmail("");
-      setOccupation("");
-    } catch (error) {
-      console.error("Error creating user:", error);
+    if (!name || !email || !occupation) {
+      alert("Please fill out all fields");
+    } else if (!email.includes("@")) {
+      alert("Please enter a valid email address");
+    } else if (occupation.length < 3) {
+      alert("Please enter a valid occupation");
+    } else if (name.length < 3) {
+      alert("Please enter a valid name");
+    } else {
+      try {
+        const response = await axios.post("/api/createUser", {
+          name,
+          email,
+          occupation,
+        });
+        console.log("Created user:", response.data);
+        // Reset form fields
+        setName("");
+        setEmail("");
+        setOccupation("");
+      } catch (error) {
+        console.error("Error creating user:", error);
+      }
     }
   };
-
-  //Create a submit post
-  // async function submitPost(e: React.FormEvent) {
-  //   e.preventDefault();
-  //   const data = await fetch("/api/createPost", {
-  //     method: "POST",
-  //     body: JSON.stringify({ name, email, occupation }),
-  //   });
-  //   const res = await data.json();
-  //   if (!res.ok) console.log(res.message);
-  //   setName("");
-  //   setEmail("");
-  //   setOccupation("");
-  // }
 
   return (
     <form
@@ -47,7 +43,7 @@ const Form = () => {
     >
       <input
         type="text"
-        className="bg-gray-300 my-3 py-3 px-2 text-gray-900 rounded-md"
+        className="bg-gray-300 my-3  text-gray-900 rounded-md py-3 px-2"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Name"

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface User {
   id: number;
@@ -31,6 +32,7 @@ async function deleteUser(id: number) {
 
 const Page = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchData() {
@@ -44,7 +46,8 @@ const Page = () => {
     }
 
     fetchData();
-  }, []);
+    router.refresh();
+  }, [router]);
 
   const handleDeleteUser = async (id: number) => {
     await deleteUser(id);
