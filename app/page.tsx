@@ -30,6 +30,14 @@ async function deleteUser(id: number) {
   }
 }
 
+// async function editUser(user: User) {
+//   try {
+//     await axios.put(`/api/editUser?id=${user.id}`, user);
+//   } catch (error) {
+//     console.error("Error editing user:", error);
+//   }
+// }
+
 const Page = () => {
   const [users, setUsers] = useState<User[]>([]);
   const router = useRouter();
@@ -54,9 +62,15 @@ const Page = () => {
     setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
   };
 
+  // const handleEditUser = async (user: User) => {
+  //   editUser(user);
+  // };
+
   return (
     <div className="container mx-auto">
-      <h1 className="text-4xl text-center font-bold my-6">Users</h1>
+      <h1 className="text-2xl text-center font-bold my-3">
+        Submit Your info Here
+      </h1>
       <Form />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {users.map((user) => (
@@ -69,6 +83,9 @@ const Page = () => {
               className="bg-red-500 text-white px-4 py-2 mt-4 rounded-md"
             >
               Delete
+            </button>
+            <button className="bg-green-500 text-white px-4 py-2 mx-5 mt-4 rounded-md">
+              Edit
             </button>
           </div>
         ))}

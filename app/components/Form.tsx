@@ -8,7 +8,6 @@ const Form = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted");
 
     if (!name || !email || !occupation) {
       alert("Please fill out all fields");
@@ -25,6 +24,7 @@ const Form = () => {
           email,
           occupation,
         });
+        console.log("Form submitted successfully");
         console.log("Created user:", response.data);
         // Reset form fields
         setName("");

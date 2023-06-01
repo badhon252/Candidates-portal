@@ -1,3 +1,5 @@
+Movie Vault Documentation / [Modules](modules.md)
+
 # Movie Vault Documentation
 
 This documentation provides an overview of the **Movie Vault** project, which is built using Next.js, TypeScript, Tailwind CSS, Prisma, and a Postgres container (Docker).
