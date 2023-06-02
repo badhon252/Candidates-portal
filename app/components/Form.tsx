@@ -1,73 +1,101 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 
-const Form = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [occupation, setOccupation] = useState("");
+export interface FormData {
+  name: string;
+  email: string;
+  occupation: string;
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+interface FormProps {
+  defaultValues?: FormData | null;
+  onSubmit: (formData: FormData) => void;
+  onCancel: () => void;
+}
 
-    if (!name || !email || !occupation) {
-      alert("Please fill out all fields");
-    } else if (!email.includes("@")) {
-      alert("Please enter a valid email address");
-    } else if (occupation.length < 3) {
-      alert("Please enter a valid occupation");
-    } else if (name.length < 3) {
-      alert("Please enter a valid name");
-    } else {
-      try {
-        const response = await axios.post("/api/createUser", {
-          name,
-          email,
-          occupation,
-        });
-        console.log("Form submitted successfully");
-        console.log("Created user:", response.data);
-        // Reset form fields
-        setName("");
-        setEmail("");
-        setOccupation("");
-      } catch (error) {
-        console.error("Error creating user:", error);
-      }
+const Form: React.FC<FormProps> = ({
+  defaultValues = null,
+  onSubmit,
+  onCancel,
+}) => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    occupation: "",
+  });
+
+  useEffect(() => {
+    if (defaultValues) {
+      setFormData(defaultValues);
     }
+  }, [defaultValues]);
+
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const handleSubmit = (event: React.FormEvent): void => {
+    event.preventDefault();
+    onSubmit(formData);
+    setFormData({ name: "", email: "", occupation: "" }); // Reset form fields after submission
+  };
+
+  const handleCancel = (): void => {
+    setFormData({ name: "", email: "", occupation: "" });
+    onCancel();
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex mx-auto flex-col md:w-1/3 lg:w-1/4 xsm:w-1/2 w-80"
+      className="flex mx-auto flex-col  xsm:w-1/2 w-80"
     >
       <input
         type="text"
-        className="bg-gray-300 my-3  text-gray-900 rounded-md py-3 px-2"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        name="name"
+        className="bg-gray-300 my-3 text-gray-900 rounded-md py-3 px-2"
+        value={formData.name}
+        onChange={handleInputChange}
         placeholder="Name"
+        required
       />
       <input
         type="email"
+        name="email"
         className="bg-gray-300 my-3 py-3 px-2 text-gray-900 rounded-md"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={formData.email}
+        onChange={handleInputChange}
         placeholder="Email"
+        required
       />
       <input
         type="text"
+        name="occupation"
         className="bg-gray-300 my-3 py-3 px-2 text-gray-900 rounded-md"
-        value={occupation}
-        onChange={(e) => setOccupation(e.target.value)}
+        value={formData.occupation}
+        onChange={handleInputChange}
         placeholder="Occupation"
+        required
       />
-      <button
-        type="submit"
-        className="bg-green-400 my-3 py-3 px-2 text-gray-900 rounded-md"
-      >
-        Submit
-      </button>
+      <div className="flex justify-between">
+        <button
+          type="submit"
+          className="bg-green-400 my-3 py-3 px-2 text-gray-900 rounded-md"
+        >
+          Submit
+        </button>
+        {onCancel !== null && (
+          <button
+            type="button"
+            className="bg-gray-400 my-3 py-3 px-2 text-gray-900 rounded-md ml-3"
+            onClick={handleCancel}
+          >
+            Cancel
+          </button>
+        )}
+      </div>
     </form>
   );
 };
