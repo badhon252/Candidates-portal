@@ -6,7 +6,8 @@ This documentation provides an overview of the **Movie Vault** project, which is
 ```git clone git@github.com:badhon252/Candidates-portal.git```
 
 ## To run this project: ]
-```npm run dev```
+- ```docker-compose up```
+- ```npm run dev```
 
 ## To run this project in production mode: 
 ```npm run build && npm run start```
