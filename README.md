@@ -2,11 +2,14 @@
 
 This documentation provides an overview of the **Movie Vault** project, which is built using Next.js, TypeScript, Tailwind CSS, Prisma, and a Postgres container (Docker).
 
-## To clone this repository: `git clone git@github.com:badhon252/Candidates-portal.git`
+## To clone this repository: 
+```git clone git@github.com:badhon252/Candidates-portal.git```
 
-## To run this project: `npm run dev`
+## To run this project: ]
+```npm run dev```
 
-## To run this project in production mode: `npm run build && npm run start`
+## To run this project in production mode: 
+```npm run build && npm run start```
 
 ## Table of Contents
 
