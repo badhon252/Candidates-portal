@@ -1,8 +1,8 @@
 "use client";
-export default function loading() {
+export default function Error() {
   return (
     <div className="text-4xl font-extrabold max-h-full text-center">
-      Loading...
+      Something is wrong ...
     </div>
   );
 }

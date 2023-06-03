@@ -98,8 +98,11 @@ const Page = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto min-h-screen">
       <h1 className="text-4xl text-center font-bold my-6">Users</h1>
+      <p className="text-2xl text-center font-bold my-6 text-orange-500">
+        Unique Email required!
+      </p>
       <Form
         defaultValues={editedUser}
         onSubmit={handleFormSubmit}
@@ -131,6 +134,7 @@ const Page = () => {
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
           <div className="bg-white p-4 rounded-md shadow-md">
             <h2 className="text-2xl font-bold mb-4">Edit User</h2>
+
             <Form
               defaultValues={editedUser}
               onSubmit={handleSaveEdit}
