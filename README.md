@@ -5,7 +5,7 @@ This documentation provides an overview of the *Candidates portals** project, wh
 ## To clone this repository: 
 ```git clone git@github.com:badhon252/Candidates-portal.git```
 
-## To run this project: ]
+## To run this project: 
 - ```docker-compose up```
 - ```npm run dev```
 
