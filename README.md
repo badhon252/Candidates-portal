@@ -14,7 +14,7 @@ This documentation provides an overview of the **Movie Vault** project, which is
 
 ## Table of Contents
 
-- [Movie Vault Documentation](#movie-vault-documentation)
+- [Candidates portals Documentation](#movie-vault-documentation)
   - [To clone this repository: `git clone git@github.com:badhon252/Candidates-portal.git`](#to-clone-this-repository-git-clone-gitgithubcombadhon252candidates-portalgit)
   - [To run this project: `npm run dev`](#to-run-this-project-npm-run-dev)
   - [To run this project in production mode: `npm run build && npm run start`](#to-run-this-project-in-production-mode-npm-run-build--npm-run-start)
