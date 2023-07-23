@@ -1,6 +1,6 @@
 # Candidates-Portal Documentation
 
-This documentation provides an overview of the **Movie Vault** project, which is built using Next.js, TypeScript, Tailwind CSS, Prisma, and a Postgres container (Docker).
+This documentation provides an overview of the *Candidates portals** project, which is built using Next.js, TypeScript, Tailwind CSS, Prisma, and a Postgres container (Docker).
 
 ## To clone this repository: 
 ```git clone git@github.com:badhon252/Candidates-portal.git```
